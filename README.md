@@ -5,7 +5,6 @@ Backend microservices for the RideLink ride-sharing platform - IT3130 Group Assi
 ## Group Members and Service Ownership
 
 | Student ID | Primary Responsibility |
-| Group Leader | IT24102084 | Wittahachchi S.K |
 
 | IT24102085 | Account Service |
 | IT24102084 | Driver and Vehicle Service |
