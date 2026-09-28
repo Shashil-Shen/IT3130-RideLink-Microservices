@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ridelink.fare_payment_service.dto.FareEstimateRequest;
-import com.ridelink.fare_payment_service.dto.FareEstimateResponse;
+import com.ridelink.fare_payment_service.dto.request.FareEstimateRequest;
+import com.ridelink.fare_payment_service.dto.response.FareEstimateResponse;
 import com.ridelink.fare_payment_service.service.FareCalculationService;
 
 import jakarta.validation.Valid;
@@ -18,7 +18,9 @@ public class FareController {
 
     private final FareCalculationService fareCalculationService;
 
-    public FareController(FareCalculationService fareCalculationService) {
+    public FareController(
+            FareCalculationService fareCalculationService) {
+
         this.fareCalculationService = fareCalculationService;
     }
 
@@ -28,6 +30,7 @@ public class FareController {
 
         FareEstimateResponse response =
                 fareCalculationService.calculateFare(
+                        request.getVehicleType(),
                         request.getDistanceKm()
                 );
 
