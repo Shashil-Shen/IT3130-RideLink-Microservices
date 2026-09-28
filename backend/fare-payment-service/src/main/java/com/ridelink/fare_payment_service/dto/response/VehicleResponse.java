@@ -9,6 +9,9 @@ public class VehicleResponse {
     private VehicleType vehicleType;
     private String ownerName;
 
+    public VehicleResponse() {
+    }
+
     public Long getId() {
         return id;
     }

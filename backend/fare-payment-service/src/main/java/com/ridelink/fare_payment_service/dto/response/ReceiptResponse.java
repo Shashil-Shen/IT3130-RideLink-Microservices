@@ -1,12 +1,12 @@
 package com.ridelink.fare_payment_service.dto.response;
 
-import com.ridelink.fare_payment_service.enums.PaymentStatus;
-import com.ridelink.fare_payment_service.enums.VehicleType;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class ReceiptResponse {
+import com.ridelink.fare_payment_service.enums.PaymentStatus;
+import com.ridelink.fare_payment_service.enums.VehicleType;
+
+public class ReceiptResponse{
 
     private Long paymentId;
     private Long rideId;

@@ -7,12 +7,13 @@ public class RideResponse {
     private Long rideId;
     private Long passengerId;
     private Long vehicleId;
-
     private String journeyStart;
     private String journeyEnd;
-
     private BigDecimal distanceKm;
     private String status;
+
+    public RideResponse() {
+    }
 
     public Long getRideId() {
         return rideId;

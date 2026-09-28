@@ -20,8 +20,7 @@ public class ReceiptService {
 
     public ReceiptResponse generateReceipt(Long paymentId) {
 
-        Payment payment =
-                paymentService.getPayment(paymentId);
+        Payment payment = paymentService.getPayment(paymentId);
 
         RideResponse ride =
                 externalServiceClient.getRide(

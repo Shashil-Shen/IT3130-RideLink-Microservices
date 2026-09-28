@@ -5,6 +5,9 @@ public class PassengerResponse {
     private Long id;
     private String name;
 
+    public PassengerResponse() {
+    }
+
     public Long getId() {
         return id;
     }
