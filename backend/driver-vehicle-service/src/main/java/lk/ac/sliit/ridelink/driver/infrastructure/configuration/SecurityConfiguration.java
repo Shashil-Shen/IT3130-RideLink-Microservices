@@ -1,0 +1,12 @@
+package lk.ac.sliit.ridelink.driver.infrastructure.configuration;
+import lk.ac.sliit.ridelink.driver.infrastructure.security.*; import org.springframework.context.annotation.*; import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity; import org.springframework.security.config.annotation.web.builders.HttpSecurity; import org.springframework.security.config.http.SessionCreationPolicy; import org.springframework.security.oauth2.jose.jws.MacAlgorithm; import org.springframework.security.oauth2.jwt.*; import org.springframework.security.oauth2.server.resource.authentication.*; import org.springframework.security.web.SecurityFilterChain; import javax.crypto.spec.SecretKeySpec; import java.nio.charset.StandardCharsets; import java.util.List;
+@Configuration @EnableMethodSecurity public class SecurityConfiguration {
+ @Bean JwtDecoder jwtDecoder(DriverProperties p){
+  byte[] secret=p.jwtSecret().getBytes(StandardCharsets.UTF_8);
+  MacAlgorithm algorithm=secret.length>=64?MacAlgorithm.HS512:secret.length>=48?MacAlgorithm.HS384:MacAlgorithm.HS256;
+  String jcaAlgorithm=algorithm==MacAlgorithm.HS512?"HmacSHA512":algorithm==MacAlgorithm.HS384?"HmacSHA384":"HmacSHA256";
+  return NimbusJwtDecoder.withSecretKey(new SecretKeySpec(secret,jcaAlgorithm)).macAlgorithm(algorithm).build();
+ }
+ @Bean JwtAuthenticationConverter jwtAuthenticationConverter(){var roles=new JwtGrantedAuthoritiesConverter();roles.setAuthoritiesClaimName("role");roles.setAuthorityPrefix("ROLE_");var c=new JwtAuthenticationConverter();c.setJwtGrantedAuthoritiesConverter(jwt->roles.convert(jwt)==null?List.of():roles.convert(jwt));return c;}
+ @Bean SecurityFilterChain chain(HttpSecurity h,JwtAuthenticationConverter c,RestAuthenticationEntryPoint entry,RestAccessDeniedHandler denied)throws Exception{return h.csrf(x->x.disable()).sessionManagement(x->x.sessionCreationPolicy(SessionCreationPolicy.STATELESS)).exceptionHandling(x->x.authenticationEntryPoint(entry).accessDeniedHandler(denied)).authorizeHttpRequests(x->x.requestMatchers("/v3/api-docs/**","/swagger-ui/**","/swagger-ui.html").permitAll().requestMatchers("/api/v1/internal/**").hasAnyRole("SERVICE","ADMIN").requestMatchers("/api/v1/admin/**").hasRole("ADMIN").requestMatchers("/api/v1/drivers/**","/api/v1/vehicles/**").hasAnyRole("DRIVER","ADMIN").anyRequest().authenticated()).oauth2ResourceServer(x->x.jwt(j->j.jwtAuthenticationConverter(c)).authenticationEntryPoint(entry).accessDeniedHandler(denied)).build();}
+}
