@@ -1,0 +1,3 @@
+package lk.ac.sliit.ridelink.ride.application.dto.response;
+import lk.ac.sliit.ridelink.ride.domain.enums.*; import java.math.BigDecimal; import java.time.Instant; import java.util.UUID;
+public record RideResponse(UUID id,UUID passengerId,UUID driverId,UUID driverProfileId,UUID vehicleId,String pickupName,String destinationName,String serviceArea,BigDecimal simulatedDistanceKm,VehicleType vehicleType,BigDecimal estimatedFare,BigDecimal finalFare,RideStatus status,Instant requestedAt,Instant assignedAt,Instant acceptedAt,Instant startedAt,Instant completedAt,Instant cancelledAt,String cancellationReason,DriverSyncStatus driverSyncStatus,Instant createdAt,Instant updatedAt) {}
