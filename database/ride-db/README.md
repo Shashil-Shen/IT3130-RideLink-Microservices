@@ -1,6 +1,6 @@
 # RideLink Ride Database
 
-**Primary Owner:** IT24104003
+**Primary Owner:** IT23734852
 
 **Database:** `ridelink_rides`
 
