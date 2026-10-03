@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:ridelink_drivers;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+ridelink:
+  account-service-url: http://localhost:18081
+  jwt-secret: test-only-secret-at-least-thirty-two-characters-long
+  service-token-expiration-ms: 60000
+  jwt-issuer: ridelink-account-service

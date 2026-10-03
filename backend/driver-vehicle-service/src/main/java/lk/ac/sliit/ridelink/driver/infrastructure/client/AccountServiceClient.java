@@ -1,0 +1,6 @@
+package lk.ac.sliit.ridelink.driver.infrastructure.client;
+import lk.ac.sliit.ridelink.driver.application.port.out.AccountValidationPort; import lk.ac.sliit.ridelink.driver.infrastructure.security.InternalServiceTokenProvider; import org.springframework.http.HttpHeaders; import org.springframework.stereotype.Component; import org.springframework.web.client.*; import java.util.UUID;
+@Component public class AccountServiceClient implements AccountValidationPort {
+ private final RestClient client; private final InternalServiceTokenProvider tokens; public AccountServiceClient(RestClient client,InternalServiceTokenProvider tokens){this.client=client;this.tokens=tokens;}
+ public boolean isActiveDriver(UUID accountId){try{AccountValidationResponse r=client.get().uri("/api/v1/internal/accounts/{id}/validation?requiredRole=DRIVER",accountId).header(HttpHeaders.AUTHORIZATION,"Bearer "+tokens.token()).retrieve().body(AccountValidationResponse.class);return r!=null&&r.valid()&&"DRIVER".equals(r.role())&&"ACTIVE".equals(r.status());}catch(HttpClientErrorException.NotFound e){return false;}catch(HttpClientErrorException e){throw new DownstreamServiceException("Account Service rejected the validation request",e);}catch(RestClientException e){throw new DownstreamServiceException("Account Service is unavailable",e);}}
+}
