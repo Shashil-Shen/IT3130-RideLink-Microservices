@@ -1,0 +1,27 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Maven and Java build output
+target/
+*.class
+*.jar
+*.war
+
+# IDE metadata
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+

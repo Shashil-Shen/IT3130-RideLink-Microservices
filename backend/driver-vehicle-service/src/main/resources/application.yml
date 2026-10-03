@@ -1,0 +1,21 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: driver-vehicle-service
+  datasource:
+    url: ${DRIVER_DB_URL}
+    username: ${DRIVER_DB_USERNAME}
+    password: ${DRIVER_DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+ridelink:
+  account-service-url: ${ACCOUNT_SERVICE_URL}
+  jwt-secret: ${JWT_SECRET}
+  service-token-expiration-ms: 60000
+  jwt-issuer: ridelink-account-service
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
