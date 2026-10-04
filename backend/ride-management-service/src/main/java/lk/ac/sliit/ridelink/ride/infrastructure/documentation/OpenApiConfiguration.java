@@ -1,0 +1,3 @@
+package lk.ac.sliit.ridelink.ride.infrastructure.documentation;
+import io.swagger.v3.oas.models.*; import io.swagger.v3.oas.models.info.*; import io.swagger.v3.oas.models.security.*; import org.springframework.context.annotation.*;
+@Configuration public class OpenApiConfiguration {@Bean OpenAPI rideApi(){return new OpenAPI().info(new Info().title("RideLink Ride Management Service API").version("v1").description("Port 8083. JWT-protected ride lifecycle and interservice coordination.")).components(new Components().addSecuritySchemes("bearerAuth",new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT"))).addSecurityItem(new SecurityRequirement().addList("bearerAuth"));}}

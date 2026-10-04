@@ -1,0 +1,3 @@
+package lk.ac.sliit.ridelink.ride.application.mapper;
+import lk.ac.sliit.ridelink.ride.application.dto.response.RideResponse; import lk.ac.sliit.ridelink.ride.domain.model.Ride;
+public final class RideApplicationMapper { private RideApplicationMapper(){} public static RideResponse response(Ride r){return new RideResponse(r.getId(),r.getPassengerId(),r.getDriverId(),r.getDriverProfileId(),r.getVehicleId(),r.getPickupName(),r.getDestinationName(),r.getServiceArea(),r.getSimulatedDistanceKm(),r.getVehicleType(),r.getEstimatedFare(),r.getFinalFare(),r.getStatus(),r.getRequestedAt(),r.getAssignedAt(),r.getAcceptedAt(),r.getStartedAt(),r.getCompletedAt(),r.getCancelledAt(),r.getCancellationReason(),r.getDriverSyncStatus(),r.getCreatedAt(),r.getUpdatedAt());} }

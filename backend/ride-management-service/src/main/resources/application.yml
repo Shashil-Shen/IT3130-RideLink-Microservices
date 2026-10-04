@@ -1,0 +1,25 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: ride-management-service
+  datasource:
+    url: ${RIDE_DB_URL}
+    username: ${RIDE_DB_USERNAME}
+    password: ${RIDE_DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+ridelink:
+  account-service-url: ${ACCOUNT_SERVICE_URL}
+  driver-service-url: ${DRIVER_SERVICE_URL}
+  fare-payment-service-url: ${FARE_PAYMENT_SERVICE_URL}
+  jwt-secret: ${JWT_SECRET}
+  jwt-issuer: ridelink-account-service
+  service-token-expiration-ms: 60000
+  connect-timeout-ms: 2000
+  read-timeout-ms: 3000
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
