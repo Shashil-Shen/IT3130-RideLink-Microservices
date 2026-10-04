@@ -28,7 +28,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class AccountApplicationServiceTest {
+class AccountApplicationServiceTest 
+{
     @Mock AccountRepository repository;
     @Mock PasswordPort passwords;
     @Mock TokenGenerationPort tokens;

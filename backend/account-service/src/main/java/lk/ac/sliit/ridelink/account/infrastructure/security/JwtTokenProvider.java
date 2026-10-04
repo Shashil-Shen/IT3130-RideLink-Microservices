@@ -15,7 +15,8 @@ import java.util.Date;
 import java.util.UUID;
 
 @Component
-public class JwtTokenProvider implements TokenGenerationPort {
+public class JwtTokenProvider implements TokenGenerationPort 
+{
     private final JwtProperties properties;
     private final SecretKey key;
 

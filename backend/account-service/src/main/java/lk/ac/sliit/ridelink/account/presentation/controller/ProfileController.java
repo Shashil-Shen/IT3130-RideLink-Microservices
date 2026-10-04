@@ -22,7 +22,8 @@ import java.util.UUID;
         @ApiResponse(responseCode = "401", description = "Missing or invalid access token"),
         @ApiResponse(responseCode = "403", description = "Insufficient authority"),
         @ApiResponse(responseCode = "404", description = "Account not found")})
-public class ProfileController {
+public class ProfileController 
+{
     private final ProfileUseCase profiles;
 
     public ProfileController(ProfileUseCase profiles) { this.profiles = profiles; }

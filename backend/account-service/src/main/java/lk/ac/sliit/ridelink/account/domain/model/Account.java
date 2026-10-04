@@ -8,7 +8,8 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.UUID;
 
-public final class Account {
+public final class Account 
+{
     private final UUID id;
     private String fullName;
     private final String email;

@@ -18,7 +18,8 @@ import java.time.Instant;
 import java.util.List;
 
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public class GlobalExceptionHandler 
+{
     @ExceptionHandler(MethodArgumentNotValidException.class)
     ResponseEntity<ApiErrorResponse> validation(MethodArgumentNotValidException exception, HttpServletRequest request) {
         List<ValidationError> errors = exception.getBindingResult().getFieldErrors().stream()

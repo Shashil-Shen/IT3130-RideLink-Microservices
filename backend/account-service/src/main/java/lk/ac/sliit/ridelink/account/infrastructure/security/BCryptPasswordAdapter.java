@@ -5,7 +5,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BCryptPasswordAdapter implements PasswordPort {
+public class BCryptPasswordAdapter implements PasswordPort 
+{
     private final PasswordEncoder encoder;
 
     public BCryptPasswordAdapter(PasswordEncoder encoder) {

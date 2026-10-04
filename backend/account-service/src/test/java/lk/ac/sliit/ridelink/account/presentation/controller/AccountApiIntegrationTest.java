@@ -34,7 +34,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-class AccountApiIntegrationTest {
+class AccountApiIntegrationTest 
+{
     private static final String TEST_SECRET = "test-only-secret-at-least-thirty-two-characters-long";
     @Autowired MockMvc mvc;
     @Autowired ObjectMapper objectMapper;

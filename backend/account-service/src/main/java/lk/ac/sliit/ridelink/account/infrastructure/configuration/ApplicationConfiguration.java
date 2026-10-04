@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ApplicationConfiguration {
+public class ApplicationConfiguration 
+{
     @Bean
     AccountApplicationService accountApplicationService(AccountRepository repository, PasswordPort passwordPort,
                                                         TokenGenerationPort tokenGenerationPort) {

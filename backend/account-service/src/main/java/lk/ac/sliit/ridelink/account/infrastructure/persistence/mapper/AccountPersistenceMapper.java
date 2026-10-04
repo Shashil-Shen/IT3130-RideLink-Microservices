@@ -3,7 +3,8 @@ package lk.ac.sliit.ridelink.account.infrastructure.persistence.mapper;
 import lk.ac.sliit.ridelink.account.domain.model.Account;
 import lk.ac.sliit.ridelink.account.infrastructure.persistence.entity.AccountJpaEntity;
 
-public final class AccountPersistenceMapper {
+public final class AccountPersistenceMapper 
+{
     private AccountPersistenceMapper() {}
 
     public static AccountJpaEntity toEntity(Account account) {

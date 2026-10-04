@@ -11,7 +11,8 @@ import java.util.UUID;
 @Table(name = "accounts", indexes = {
         @Index(name = "idx_accounts_role_status", columnList = "role,status")
 })
-public class AccountJpaEntity {
+public class AccountJpaEntity 
+{
     @Id
     private UUID id;
     @Column(name = "full_name", nullable = false, length = 120)

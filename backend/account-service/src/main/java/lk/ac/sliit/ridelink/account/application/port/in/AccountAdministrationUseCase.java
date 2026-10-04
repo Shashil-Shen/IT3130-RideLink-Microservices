@@ -6,7 +6,8 @@ import lk.ac.sliit.ridelink.account.domain.enums.AccountStatus;
 
 import java.util.UUID;
 
-public interface AccountAdministrationUseCase {
+public interface AccountAdministrationUseCase 
+{
     AccountResponse updateStatus(UUID accountId, AccountStatus status);
     AccountResponse updateRole(UUID accountId, AccountRole role);
 }

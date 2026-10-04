@@ -26,7 +26,8 @@ import lk.ac.sliit.ridelink.account.domain.service.AccountAccessPolicy;
 import java.util.UUID;
 
 public class AccountApplicationService implements RegisterAccountUseCase, LoginUseCase, ProfileUseCase,
-        AccountAdministrationUseCase, ValidateAccountUseCase {
+        AccountAdministrationUseCase, ValidateAccountUseCase 
+        {
     private final AccountRepository repository;
     private final PasswordPort passwordPort;
     private final TokenGenerationPort tokenPort;

@@ -10,7 +10,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Component
-public class AccountPersistenceAdapter implements AccountRepository {
+public class AccountPersistenceAdapter implements AccountRepository 
+{
     private final SpringDataAccountRepository repository;
 
     public AccountPersistenceAdapter(SpringDataAccountRepository repository) {

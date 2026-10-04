@@ -22,7 +22,8 @@ import java.util.UUID;
         @ApiResponse(responseCode = "401", description = "Missing or invalid access token"),
         @ApiResponse(responseCode = "403", description = "ADMIN role required"),
         @ApiResponse(responseCode = "404", description = "Account not found")})
-public class AdminAccountController {
+public class AdminAccountController 
+{
     private final AccountAdministrationUseCase administration;
 
     public AdminAccountController(AccountAdministrationUseCase administration) { this.administration = administration; }

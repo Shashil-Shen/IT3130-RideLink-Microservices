@@ -14,7 +14,8 @@ import java.time.Instant;
 import java.util.List;
 
 @Component
-public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
+public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint 
+{
     private final ObjectMapper objectMapper;
 
     public RestAuthenticationEntryPoint(ObjectMapper objectMapper) {
