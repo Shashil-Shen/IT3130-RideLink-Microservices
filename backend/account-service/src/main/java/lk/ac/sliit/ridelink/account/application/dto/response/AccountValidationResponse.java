@@ -5,4 +5,5 @@ import lk.ac.sliit.ridelink.account.domain.enums.AccountStatus;
 
 import java.util.UUID;
 
-public record AccountValidationResponse(UUID accountId, AccountRole role, AccountStatus status, boolean valid) {}
+public record AccountValidationResponse(UUID accountId, AccountRole role, AccountStatus status, boolean valid) 
+{}

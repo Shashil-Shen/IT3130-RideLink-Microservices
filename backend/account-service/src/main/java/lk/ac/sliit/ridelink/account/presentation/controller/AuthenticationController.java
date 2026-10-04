@@ -20,7 +20,8 @@ import org.springframework.web.bind.annotation.*;
 @ApiResponses({@ApiResponse(responseCode = "400", description = "Request validation failed"),
         @ApiResponse(responseCode = "401", description = "Invalid credentials or inactive account"),
         @ApiResponse(responseCode = "409", description = "Email already registered")})
-public class AuthenticationController {
+public class AuthenticationController 
+{
     private final RegisterAccountUseCase registration;
     private final LoginUseCase login;
 

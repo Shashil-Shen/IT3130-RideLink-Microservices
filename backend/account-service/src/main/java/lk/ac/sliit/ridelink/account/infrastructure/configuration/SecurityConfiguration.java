@@ -15,7 +15,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableMethodSecurity
-public class SecurityConfiguration {
+public class SecurityConfiguration 
+{
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

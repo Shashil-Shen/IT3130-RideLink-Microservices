@@ -1,6 +1,7 @@
 package lk.ac.sliit.ridelink.account.domain.enums;
 
-public enum AccountStatus {
+public enum AccountStatus 
+{
     ACTIVE,
     INACTIVE,
     SUSPENDED
