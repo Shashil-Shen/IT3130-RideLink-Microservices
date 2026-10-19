@@ -1,9 +1,10 @@
 -- Run as a PostgreSQL administrator. Only Ride Management Service owns this database.
-CREATE DATABASE ridelink_rides;
+SELECT 'CREATE DATABASE ridelink_rides'
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'ridelink_rides')\gexec
 
 \connect ridelink_rides
 
-CREATE TABLE rides (
+CREATE TABLE IF NOT EXISTS rides (
     id UUID PRIMARY KEY,
     passenger_id UUID NOT NULL,
     driver_id UUID,
@@ -33,7 +34,7 @@ CREATE TABLE rides (
     CHECK (status <> 'CANCELLED' OR (cancelled_at IS NOT NULL AND cancellation_reason IS NOT NULL))
 );
 
-CREATE INDEX idx_rides_passenger_requested ON rides (passenger_id, requested_at DESC);
-CREATE INDEX idx_rides_driver_requested ON rides (driver_id, requested_at DESC);
-CREATE INDEX idx_rides_status_requested ON rides (status, requested_at);
-CREATE INDEX idx_rides_driver_sync ON rides (driver_sync_status);
+CREATE INDEX IF NOT EXISTS idx_rides_passenger_requested ON rides (passenger_id, requested_at DESC);
+CREATE INDEX IF NOT EXISTS idx_rides_driver_requested ON rides (driver_id, requested_at DESC);
+CREATE INDEX IF NOT EXISTS idx_rides_status_requested ON rides (status, requested_at);
+CREATE INDEX IF NOT EXISTS idx_rides_driver_sync ON rides (driver_sync_status);

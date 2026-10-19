@@ -2,6 +2,7 @@ package com.ridelink.fare_payment_service.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import com.ridelink.fare_payment_service.enums.PaymentStatus;
 import com.ridelink.fare_payment_service.enums.VehicleType;
@@ -24,13 +25,13 @@ public class Payment {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private Long rideId;
+    private UUID rideId;
 
     @Column(nullable = false)
-    private Long passengerId;
+    private UUID passengerId;
 
     @Column(nullable = false)
-    private Long vehicleId;
+    private UUID vehicleId;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -78,27 +79,27 @@ public class Payment {
         this.id = id;
     }
 
-    public Long getRideId() {
+    public UUID getRideId() {
         return rideId;
     }
 
-    public void setRideId(Long rideId) {
+    public void setRideId(UUID rideId) {
         this.rideId = rideId;
     }
 
-    public Long getPassengerId() {
+    public UUID getPassengerId() {
         return passengerId;
     }
 
-    public void setPassengerId(Long passengerId) {
+    public void setPassengerId(UUID passengerId) {
         this.passengerId = passengerId;
     }
 
-    public Long getVehicleId() {
+    public UUID getVehicleId() {
         return vehicleId;
     }
 
-    public void setVehicleId(Long vehicleId) {
+    public void setVehicleId(UUID vehicleId) {
         this.vehicleId = vehicleId;
     }
 

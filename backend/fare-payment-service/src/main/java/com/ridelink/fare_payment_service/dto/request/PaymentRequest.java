@@ -2,11 +2,12 @@ package com.ridelink.fare_payment_service.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import java.util.UUID;
 
 public class PaymentRequest {
 
     @NotNull(message = "Ride ID is required")
-    private Long rideId;
+    private UUID rideId;
 
     @NotBlank(message = "Payment method is required")
     private String paymentMethod;
@@ -14,11 +15,11 @@ public class PaymentRequest {
     public PaymentRequest() {
     }
 
-    public Long getRideId() {
+    public UUID getRideId() {
         return rideId;
     }
 
-    public void setRideId(Long rideId) {
+    public void setRideId(UUID rideId) {
         this.rideId = rideId;
     }
 

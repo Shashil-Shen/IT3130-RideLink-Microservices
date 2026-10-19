@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lk.ac.sliit.ridelink.ride.application.dto.response.RideResponse;
 import lk.ac.sliit.ridelink.ride.application.port.in.RideLifecycleUseCase;
+import lk.ac.sliit.ridelink.ride.application.port.in.RideQueryUseCase;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,9 +23,17 @@ import java.util.UUID;
 public class InternalRideController {
 
     private final RideLifecycleUseCase rides;
+    private final RideQueryUseCase queries;
 
-    public InternalRideController(RideLifecycleUseCase rides) {
+    public InternalRideController(RideLifecycleUseCase rides, RideQueryUseCase queries) {
         this.rides = rides;
+        this.queries = queries;
+    }
+
+    @GetMapping("/{rideId}")
+    @PreAuthorize("hasAnyRole('SERVICE','ADMIN')")
+    public RideResponse get(@PathVariable UUID rideId) {
+        return queries.get(rideId, rideId, "ADMIN");
     }
 
     @PostMapping("/{rideId}/driver-sync")

@@ -1,66 +1,67 @@
 package com.ridelink.fare_payment_service.dto.response;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 public class RideResponse {
 
-    private Long rideId;
-    private Long passengerId;
-    private Long vehicleId;
-    private String journeyStart;
-    private String journeyEnd;
-    private BigDecimal distanceKm;
+    private UUID id;
+    private UUID passengerId;
+    private UUID vehicleId;
+    private String pickupName;
+    private String destinationName;
+    private BigDecimal simulatedDistanceKm;
     private String status;
 
     public RideResponse() {
     }
 
-    public Long getRideId() {
-        return rideId;
+    public UUID getRideId() {
+        return id;
     }
 
-    public void setRideId(Long rideId) {
-        this.rideId = rideId;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
-    public Long getPassengerId() {
+    public UUID getPassengerId() {
         return passengerId;
     }
 
-    public void setPassengerId(Long passengerId) {
+    public void setPassengerId(UUID passengerId) {
         this.passengerId = passengerId;
     }
 
-    public Long getVehicleId() {
+    public UUID getVehicleId() {
         return vehicleId;
     }
 
-    public void setVehicleId(Long vehicleId) {
+    public void setVehicleId(UUID vehicleId) {
         this.vehicleId = vehicleId;
     }
 
     public String getJourneyStart() {
-        return journeyStart;
+        return pickupName;
     }
 
-    public void setJourneyStart(String journeyStart) {
-        this.journeyStart = journeyStart;
+    public void setPickupName(String pickupName) {
+        this.pickupName = pickupName;
     }
 
     public String getJourneyEnd() {
-        return journeyEnd;
+        return destinationName;
     }
 
-    public void setJourneyEnd(String journeyEnd) {
-        this.journeyEnd = journeyEnd;
+    public void setDestinationName(String destinationName) {
+        this.destinationName = destinationName;
     }
 
     public BigDecimal getDistanceKm() {
-        return distanceKm;
+        return simulatedDistanceKm;
     }
 
-    public void setDistanceKm(BigDecimal distanceKm) {
-        this.distanceKm = distanceKm;
+    public void setSimulatedDistanceKm(BigDecimal simulatedDistanceKm) {
+        this.simulatedDistanceKm = simulatedDistanceKm;
     }
 
     public String getStatus() {

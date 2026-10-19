@@ -8,6 +8,7 @@ public interface DriverVehicleUseCase {
  DriverProfileResponse updateAvailability(UUID accountId,AvailabilityStatus status); DriverProfileResponse updateLocation(UUID accountId,LocationRequest request);
  DriverProfileResponse updateServiceArea(UUID accountId,String serviceArea); VehicleResponse registerVehicle(UUID accountId,RegisterVehicleRequest request);
  List<VehicleResponse> getOwnVehicles(UUID accountId); VehicleResponse getVehicle(UUID requesterAccountId,boolean admin,UUID vehicleId);
+ VehicleResponse getVehicleInternal(UUID vehicleId);
  VehicleResponse updateVehicle(UUID requesterAccountId,boolean admin,UUID vehicleId,UpdateVehicleRequest request);
  VehicleResponse setVehicleActive(UUID requesterAccountId,boolean admin,UUID vehicleId,boolean active);
  List<EligibleDriverResponse> findEligible(String serviceArea,VehicleType type); DriverProfileResponse assign(UUID driverId,UUID rideId);

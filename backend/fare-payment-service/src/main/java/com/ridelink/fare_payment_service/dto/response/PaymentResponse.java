@@ -2,13 +2,14 @@ package com.ridelink.fare_payment_service.dto.response;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import com.ridelink.fare_payment_service.enums.PaymentStatus;
 
 public class PaymentResponse {
 
     private Long paymentId;
-    private Long rideId;
+    private UUID rideId;
     private BigDecimal totalFare;
     private String paymentMethod;
     private PaymentStatus paymentStatus;
@@ -17,7 +18,7 @@ public class PaymentResponse {
 
     public PaymentResponse(
             Long paymentId,
-            Long rideId,
+            UUID rideId,
             BigDecimal totalFare,
             String paymentMethod,
             PaymentStatus paymentStatus,
@@ -37,7 +38,7 @@ public class PaymentResponse {
         return paymentId;
     }
 
-    public Long getRideId() {
+    public UUID getRideId() {
         return rideId;
     }
 

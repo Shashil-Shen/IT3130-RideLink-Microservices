@@ -1,18 +1,20 @@
 package com.ridelink.fare_payment_service.dto.response;
 
+import java.util.UUID;
+
 public class PassengerResponse {
 
-    private Long id;
+    private UUID id;
     private String name;
 
     public PassengerResponse() {
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

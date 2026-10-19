@@ -1,10 +1,11 @@
 package com.ridelink.fare_payment_service.dto.response;
 
 import com.ridelink.fare_payment_service.enums.VehicleType;
+import java.util.UUID;
 
 public class VehicleResponse {
 
-    private Long id;
+    private UUID id;
     private String vehicleNumber;
     private VehicleType vehicleType;
     private String ownerName;
@@ -12,11 +13,11 @@ public class VehicleResponse {
     public VehicleResponse() {
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

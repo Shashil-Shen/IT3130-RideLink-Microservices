@@ -2,6 +2,7 @@ package com.ridelink.fare_payment_service.dto.response;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import com.ridelink.fare_payment_service.enums.PaymentStatus;
 import com.ridelink.fare_payment_service.enums.VehicleType;
@@ -9,7 +10,7 @@ import com.ridelink.fare_payment_service.enums.VehicleType;
 public class ReceiptResponse{
 
     private Long paymentId;
-    private Long rideId;
+    private UUID rideId;
 
     private String passengerName;
 
@@ -33,7 +34,7 @@ public class ReceiptResponse{
 
     public ReceiptResponse(
             Long paymentId,
-            Long rideId,
+            UUID rideId,
             String passengerName,
             String vehicleNumber,
             VehicleType vehicleType,
@@ -69,5 +70,21 @@ public class ReceiptResponse{
         this.paymentDate = paymentDate;
     }
 
-    // Generate getters
+    public Long getPaymentId() { return paymentId; }
+    public UUID getRideId() { return rideId; }
+    public String getPassengerName() { return passengerName; }
+    public String getVehicleNumber() { return vehicleNumber; }
+    public VehicleType getVehicleType() { return vehicleType; }
+    public String getVehicleOwnerName() { return vehicleOwnerName; }
+    public String getJourneyStart() { return journeyStart; }
+    public String getJourneyEnd() { return journeyEnd; }
+    public BigDecimal getDistanceKm() { return distanceKm; }
+    public BigDecimal getBaseFare() { return baseFare; }
+    public BigDecimal getPricePerKm() { return pricePerKm; }
+    public BigDecimal getDistanceCharge() { return distanceCharge; }
+    public BigDecimal getDiscount() { return discount; }
+    public BigDecimal getTotalFare() { return totalFare; }
+    public PaymentStatus getPaymentStatus() { return paymentStatus; }
+    public String getTransactionReference() { return transactionReference; }
+    public LocalDateTime getPaymentDate() { return paymentDate; }
 }
